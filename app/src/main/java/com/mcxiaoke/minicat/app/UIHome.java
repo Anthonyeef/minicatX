@@ -25,6 +25,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+
 import com.mcxiaoke.minicat.AppContext;
 import com.mcxiaoke.minicat.R;
 import com.mcxiaoke.minicat.adapter.HomePagesAdapter;
@@ -41,11 +42,13 @@ import com.mcxiaoke.minicat.service.AutoCompleteService;
 import com.mcxiaoke.minicat.service.Constants;
 import com.mcxiaoke.minicat.util.LogUtil;
 import com.mcxiaoke.minicat.util.Utils;
+import com.melnykov.fab.FloatingActionButton;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.umeng.analytics.MobclickAgent;
 import com.umeng.update.UmengUpdateAgent;
 import com.umeng.update.UmengUpdateListener;
 import com.umeng.update.UpdateResponse;
+
 import org.oauthsimple.utils.MimeUtils;
 
 
@@ -76,6 +79,8 @@ public class UIHome extends UIBaseSupport implements MenuCallback,
     private int mCurrentPage;
     private BroadcastReceiver mReceiver;
     private AbstractFragment mCurrentFragment;
+    private FloatingActionButton mFloatingActionButton;
+
 
     private void log(String message) {
         LogUtil.v(TAG, message);
@@ -155,10 +160,10 @@ public class UIHome extends UIBaseSupport implements MenuCallback,
         if (mDrawerToggle.onOptionsItemSelected(item)) {
             return true;
         }
-        if (item.getItemId() == R.id.menu_write) {
-            onMenuWriteClick();
-            return true;
-        }
+//        if (item.getItemId() == R.id.menu_write) {
+//            onMenuWriteClick();
+//            return true;
+//        }
         return super.onOptionsItemSelected(item);
     }
 
@@ -289,6 +294,15 @@ public class UIHome extends UIBaseSupport implements MenuCallback,
         setTitle(R.string.page_title_home);
         mDrawerTitle = "@" + AppContext.getScreenName();
         mTitle = getTitle();
+
+        mFloatingActionButton = (FloatingActionButton) findViewById(R.id.fab);
+        mFloatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                UIController.showWrite(mContext);
+            }
+        });
+
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mDrawerLayout.setScrimColor(getResources().getColor(R.color.drawer_dim_background));
         mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout,
@@ -504,13 +518,13 @@ public class UIHome extends UIBaseSupport implements MenuCallback,
     private void setHomeTitle(int page) {
         switch (page) {
             case 0:
-                setTitle("主页");
+                setTitle(getString(R.string.page_title_home));
                 break;
             case 1:
-                setTitle("提到我的");
+                setTitle(getString(R.string.page_title_mention));
                 break;
             case 2:
-                setTitle("随便看看");
+                setTitle(getString(R.string.page_title_public));
                 break;
             default:
                 break;

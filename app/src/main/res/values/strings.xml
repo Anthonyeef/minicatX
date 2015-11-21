@@ -25,7 +25,7 @@
     <string name="press_color_to_apply">Press on Color to apply</string>
 
     <!-- login page -->
-    <string name="login_username_hint">Account/Email/Phone Number</string>
+    <string name="login_username_hint">Username</string>
     <string name="login_password_hint">Password</string>
     <string name="login_button_text">Login</string>
 

@@ -21,8 +21,7 @@ import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.CursorAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-import butterknife.ButterKnife;
-import butterknife.InjectView;
+
 import com.mcxiaoke.commons.view.endless.EndlessListView;
 import com.mcxiaoke.minicat.AppContext;
 import com.mcxiaoke.minicat.R;
@@ -34,6 +33,9 @@ import com.mcxiaoke.minicat.ui.UIHelper;
 import com.mcxiaoke.minicat.util.NetworkHelper;
 import com.mcxiaoke.minicat.util.Utils;
 import com.nostra13.universalimageloader.core.ImageLoader;
+
+import butterknife.Bind;
+import butterknife.ButterKnife;
 
 /**
  * @author mcxiaoke
@@ -48,9 +50,9 @@ public abstract class SwipeRefreshListFragment extends AbstractListFragment
     private static final String TAG = SwipeRefreshListFragment.class
             .getSimpleName();
 
-    @InjectView(R.id.root)
+    @Bind(R.id.root)
     SwipeRefreshLayout mSwipeRefreshLayout;
-    @InjectView(R.id.list)
+    @Bind(R.id.list)
     EndlessListView mListView;
     boolean mDataLoaded;
     volatile boolean busy;
@@ -224,7 +226,7 @@ public abstract class SwipeRefreshListFragment extends AbstractListFragment
             Log.v(TAG, "onCreateView() isVisible=" + isVisible());
         }
         final View view = inflater.inflate(R.layout.fm_pull_list, container, false);
-        ButterKnife.inject(this, view);
+        ButterKnife.bind(this, view);
         return view;
     }
 

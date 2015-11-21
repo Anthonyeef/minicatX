@@ -13,6 +13,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
+
 import com.mcxiaoke.minicat.AppContext;
 import com.mcxiaoke.minicat.R;
 import com.mcxiaoke.minicat.controller.EmptyViewController;
@@ -21,11 +22,12 @@ import com.mcxiaoke.minicat.util.Utils;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.assist.FailReason;
-import com.nostra13.universalimageloader.core.assist.ImageLoadingListener;
 import com.nostra13.universalimageloader.core.assist.ImageScaleType;
-import uk.co.senab.photoview.PhotoView;
+import com.nostra13.universalimageloader.core.listener.SimpleImageLoadingListener;
 
 import java.io.File;
+
+import uk.co.senab.photoview.PhotoView;
 
 /**
  * @author mcxiaoke
@@ -141,7 +143,7 @@ public class UIPhoto extends Activity implements OnClickListener {
 
     private void displayImage() {
         final String imageUrl = url;
-        final ImageLoadingListener listener = new ImageLoadingListener() {
+        final SimpleImageLoadingListener listener = new SimpleImageLoadingListener() {
 
             @Override
             public void onLoadingStarted(String imageUri, View view) {

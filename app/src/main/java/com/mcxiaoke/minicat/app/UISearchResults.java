@@ -12,8 +12,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import butterknife.ButterKnife;
-import butterknife.InjectView;
+
 import com.mcxiaoke.commons.view.endless.EndlessListView;
 import com.mcxiaoke.minicat.AppContext;
 import com.mcxiaoke.minicat.R;
@@ -30,6 +29,9 @@ import com.mcxiaoke.minicat.util.StringHelper;
 
 import java.util.List;
 
+import butterknife.Bind;
+import butterknife.ButterKnife;
+
 /**
  * @author mcxiaoke
  * @version 2.3 2012.03.30
@@ -37,7 +39,7 @@ import java.util.List;
 public class UISearchResults extends UIBaseSupport implements EndlessListView.OnFooterRefreshListener, OnItemClickListener {
     private static final String TAG = UISearchResults.class.getSimpleName();
     private static final String LIST_STATE = "listState";
-    @InjectView(R.id.list)
+    @Bind(R.id.list)
     EndlessListView mListView;
     private SearchResultsArrayAdapter mStatusAdapter;
     private String keyword;
@@ -90,7 +92,7 @@ public class UISearchResults extends UIBaseSupport implements EndlessListView.On
     protected void setLayout() {
         setContentView(R.layout.list_pull);
         setProgressBarIndeterminateVisibility(false);
-        ButterKnife.inject(this);
+        ButterKnife.bind(this);
         mListView = (EndlessListView) findViewById(R.id.list);
         mListView.setLongClickable(false);
         mListView.setOnItemClickListener(this);

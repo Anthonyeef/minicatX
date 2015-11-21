@@ -119,7 +119,9 @@ public class PostMessageService extends BaseIntentService {
                 "饭否私信正在发送...", System.currentTimeMillis());
         PendingIntent contentIntent = PendingIntent.getActivity(this, 0,
                 new Intent(), 0);
-        notification.setLatestEventInfo(this, "饭否私信", "正在发送...", contentIntent);
+//        notification.setLatestEventInfo(this, "饭否私信", "正在发送...", contentIntent);
+
+
         notification.flags |= Notification.FLAG_ONGOING_EVENT;
         nm.notify(id, notification);
         return id;

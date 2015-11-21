@@ -91,11 +91,11 @@ public abstract class UIBaseSupport extends Activity implements OnClickListener 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         debug("onCreateOptionsMenu() mRefreshing=" + mRefreshing);
-        int id = getMenuResourceId();
-        if (id > 0) {
-            getMenuInflater().inflate(id, menu);
-            mRefreshMenuItem = menu.findItem(R.id.menu_refresh);
-        }
+//        int id = getMenuResourceId();
+//        if (id > 0) {
+//            getMenuInflater().inflate(id, menu);
+//            mRefreshMenuItem = menu.findItem(R.id.menu_refresh);
+//        }
         return true;
     }
 

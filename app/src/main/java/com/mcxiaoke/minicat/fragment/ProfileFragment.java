@@ -16,8 +16,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ScrollView;
-import butterknife.ButterKnife;
-import butterknife.InjectView;
+
 import com.mcxiaoke.minicat.AppContext;
 import com.mcxiaoke.minicat.R;
 import com.mcxiaoke.minicat.controller.CacheController;
@@ -31,6 +30,9 @@ import com.mcxiaoke.minicat.util.IntentHelper;
 import com.mcxiaoke.minicat.util.LogUtil;
 import com.mcxiaoke.minicat.util.Utils;
 
+import butterknife.Bind;
+import butterknife.ButterKnife;
+
 /**
  * Project: fanfouapp
  * Package: com.mcxiaoke.fanfouapp.fragment
@@ -41,11 +43,11 @@ import com.mcxiaoke.minicat.util.Utils;
 public class ProfileFragment extends AbstractFragment
         implements ProfileView.ProfileClickListener {
     private static final String TAG = ProfileFragment.class.getSimpleName();
-    @InjectView(R.id.root)
+    @Bind(R.id.root)
     SwipeRefreshLayoutEx mSwipeRefreshLayout;
-    @InjectView(R.id.container)
+    @Bind(R.id.container)
     ScrollView mScrollView;
-    @InjectView(R.id.profile)
+    @Bind(R.id.profile)
     ProfileView mProfileView;
     private boolean useMenu;
     private String userId;
@@ -82,7 +84,7 @@ public class ProfileFragment extends AbstractFragment
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.fm_profile, container, false);
-        ButterKnife.inject(this, view);
+        ButterKnife.bind(this, view);
         return view;
     }
 

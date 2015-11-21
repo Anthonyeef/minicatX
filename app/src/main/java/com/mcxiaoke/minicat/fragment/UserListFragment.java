@@ -18,8 +18,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.CursorAdapter;
 import android.widget.ListView;
-import butterknife.ButterKnife;
-import butterknife.InjectView;
+
 import com.mcxiaoke.commons.view.endless.EndlessListView;
 import com.mcxiaoke.minicat.AppContext;
 import com.mcxiaoke.minicat.R;
@@ -32,6 +31,9 @@ import com.mcxiaoke.minicat.service.Constants;
 import com.mcxiaoke.minicat.service.SyncService;
 import com.mcxiaoke.minicat.ui.UIHelper;
 import com.mcxiaoke.minicat.util.Utils;
+
+import butterknife.Bind;
+import butterknife.ButterKnife;
 
 /**
  * @author mcxiaoke
@@ -47,9 +49,9 @@ public abstract class UserListFragment extends AbstractListFragment
             .getSimpleName();
 
 
-    @InjectView(R.id.root)
+    @Bind(R.id.root)
     SwipeRefreshLayout mSwipeRefreshLayout;
-    @InjectView(R.id.list)
+    @Bind(R.id.list)
     EndlessListView mListView;
     boolean mDataLoaded;
     volatile boolean busy;
@@ -193,7 +195,7 @@ public abstract class UserListFragment extends AbstractListFragment
             Log.d(TAG, "onCreateView() isVisible=" + isVisible());
         }
         final View view = inflater.inflate(R.layout.fm_userlist_ptr, container, false);
-        ButterKnife.inject(this, view);
+        ButterKnife.bind(this, view);
         setUp();
         return view;
     }
