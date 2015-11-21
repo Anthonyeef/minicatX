@@ -4,6 +4,7 @@ build
 gen
 bin
 local.properties
+gradle.properties
 .gradle
 .*.swp
 /.classpath
