@@ -26,6 +26,7 @@
 
     <TextView
         android:id="@+id/user_name"
+        android:layout_marginTop="5dp"
         android:textStyle="bold"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -38,7 +39,9 @@
 
     <TextView
         android:id="@+id/user_id"
+        android:layout_marginTop="5dp"
         android:textSize="@dimen/text_size_small"
+        android:fontFamily="sans-serif-light"
         android:textColor="@color/text_secondary"
         android:gravity="center_vertical"
         android:layout_width="wrap_content"
@@ -111,22 +114,34 @@
             android:visibility="gone" />
 
 
-        <TextView
+        <!--<TextView
             android:id="@+id/time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
             android:textColor="@color/text_secondary"
             android:textSize="@dimen/text_size_tiny"
-            android:singleLine="true" />
+            android:singleLine="true" />-->
 
     </LinearLayout>
 
-
-    <LinearLayout
+    <TextView
+        android:id="@+id/time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_toRightOf="@id/avatar"
         android:layout_alignLeft="@id/user_name"
-        android:layout_below="@id/user_id"
+        android:layout_below="@id/user_name"
+        android:gravity="center_vertical"
+        android:textColor="@color/text_secondary"
+        android:textSize="@dimen/text_size_tiny"
+        android:singleLine="true" />
+
+    <!--Modify here-->
+    <!--android:layout_toRightOf="@id/avatar"-->
+    <LinearLayout
+        android:layout_alignLeft="@id/avatar"
+        android:layout_below="@id/avatar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
@@ -138,7 +153,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/text_primary"
-            android:textSize="@dimen/text_size_medium"
+            android:textSize="15sp"
             android:lineSpacingMultiplier="1.2" />
 
         <ImageView

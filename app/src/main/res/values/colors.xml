@@ -45,7 +45,7 @@
     <color name="text_primary">#FF444444</color>
     <color name="text_secondary">#FFa4a4a4</color>
 
-    <color name="background_primary">#FFFCFEFE</color>
+    <color name="background_primary">#EEEEEE</color>
     <color name="background_secondary">#FFEDEFEF</color>
 
     <color name="list_item_status_self_highlight">#2033b5e5</color>
