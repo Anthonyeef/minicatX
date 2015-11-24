@@ -25,5 +25,9 @@
         android:id="@+id/action_camera"
         style="@style/ActionItem"
         android:src="@drawable/ic_camera" />
+    <ImageButton
+        android:id="@+id/action_send"
+        android:src="@drawable/ic_send"
+        style="@style/ActionItem" />
 
 </LinearLayout>

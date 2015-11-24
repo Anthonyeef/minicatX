@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Handler;
 import android.os.Message;
+
 import com.mcxiaoke.minicat.app.UIAbout;
 import com.mcxiaoke.minicat.app.UIConversation;
 import com.mcxiaoke.minicat.app.UIDebugMode;

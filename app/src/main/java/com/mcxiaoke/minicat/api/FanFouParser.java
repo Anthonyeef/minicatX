@@ -52,7 +52,7 @@ final class FanFouParser implements ApiParser {
             Photo photo = new Photo();
             photo.url = o.getString("url");
             photo.imageUrl = o.getString("imageurl");
-            photo.thumbUrl = o.getString("thumburl");
+            photo.thumbUrl = o.getString("imageurl");
             photo.largeUrl = o.getString("largeurl");
             return photo;
         } catch (JSONException e) {

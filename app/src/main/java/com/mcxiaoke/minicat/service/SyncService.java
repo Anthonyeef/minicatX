@@ -19,8 +19,9 @@ import android.os.Message;
 import android.os.Messenger;
 import android.os.Parcelable;
 import android.os.RemoteException;
-import android.support.v4.app.NotificationCompat;
+import android.support.v7.app.NotificationCompat;
 import android.util.Log;
+
 import com.mcxiaoke.minicat.AppContext;
 import com.mcxiaoke.minicat.R;
 import com.mcxiaoke.minicat.api.Api;

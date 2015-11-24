@@ -68,6 +68,7 @@ public class UIWrite extends UIBaseSupport implements LoaderCallbacks<Cursor> {
     private ImageButton actionRecord;
     private ImageButton actionGallery;
     private ImageButton actionCamera;
+    private ImageButton actionSend;
     private Uri photoUri;
     private File photo;
     private String content;
@@ -169,6 +170,9 @@ public class UIWrite extends UIBaseSupport implements LoaderCallbacks<Cursor> {
                 break;
             case R.id.photo_show:
                 showRemoveDialog();
+                break;
+            case R.id.action_send:
+                doSend();
                 break;
             default:
                 break;
@@ -376,11 +380,13 @@ public class UIWrite extends UIBaseSupport implements LoaderCallbacks<Cursor> {
         actionRecord = (ImageButton) findViewById(R.id.action_record);
         actionGallery = (ImageButton) findViewById(R.id.action_gallery);
         actionCamera = (ImageButton) findViewById(R.id.action_camera);
+        actionSend = (ImageButton) findViewById(R.id.action_send);
 
         actionMention.setOnClickListener(this);
         actionRecord.setOnClickListener(this);
         actionGallery.setOnClickListener(this);
         actionCamera.setOnClickListener(this);
+        actionSend.setOnClickListener(this);
 
         vPhoto = (ViewGroup) findViewById(R.id.photo);
         final GestureDetector.SimpleOnGestureListener simpleOnGestureListener = new GestureDetector.SimpleOnGestureListener() {
@@ -504,6 +510,7 @@ public class UIWrite extends UIBaseSupport implements LoaderCallbacks<Cursor> {
     }
 
     private void pickPhotoFromGallery() {
+        CompatUtils.verifyStoragePermissions(this);
         Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
         intent.setType("image/*");
         // startActivityForResult(intent, REQUEST_PHOTO_LIBRARY);

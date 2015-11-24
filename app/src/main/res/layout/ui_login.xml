@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/root"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/background_primary">
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/root"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/background_primary">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -11,24 +12,30 @@
         android:gravity="center_horizontal"
         android:orientation="vertical"
         android:layout_marginTop="48dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
         android:padding="18dp">
 
-        <EditText
+        <com.rengwuxian.materialedittext.MaterialEditText
             android:id="@+id/login_username"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            style="@style/EditText.Login"
+            android:focusableInTouchMode="true"
             android:hint="@string/login_username_hint"
-            android:inputType="textEmailAddress" />
+            android:textSize="@dimen/text_size_medium"
+            android:inputType="textEmailAddress"
+            app:met_textColorHint="#ffb5b5b5"/>
 
-        <EditText
+        <com.rengwuxian.materialedittext.MaterialEditText
             android:id="@+id/login_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            style="@style/EditText.Login"
             android:hint="@string/login_password_hint"
+            android:focusableInTouchMode="true"
+            android:textSize="@dimen/text_size_medium"
             android:imeOptions="actionSend"
-            android:inputType="textPassword" />
+            android:inputType="textPassword"
+            app:met_textColorHint="#ffb5b5b5"/>
 
         <Button
             android:id="@+id/button_signin"
