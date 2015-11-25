@@ -140,6 +140,7 @@
     <!--Modify here-->
     <!--android:layout_toRightOf="@id/avatar"-->
     <LinearLayout
+        android:id="@+id/imageview"
         android:layout_alignLeft="@id/avatar"
         android:layout_below="@id/avatar"
         android:layout_width="match_parent"
@@ -173,6 +174,51 @@
             android:textColor="@color/text_secondary"
             android:textSize="@dimen/text_size_small"
             android:singleLine="true" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/cardaction"
+        android:layout_below="@id/imageview"
+        android:layout_marginTop="8dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/cardreply"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginLeft="0dp"
+            android:layout_marginRight="10dp"
+            android:background="#FAFAFA"
+            android:src="@drawable/ic_reply_card"/>
+        <ImageButton
+            android:id="@+id/cardretweet"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="10dp"
+            android:background="#FAFAFA"
+            android:src="@drawable/ic_retweet_card"/>
+        <ImageButton
+            android:id="@+id/cardfav"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="10dp"
+            android:background="#FAFAFA"
+            android:src="@drawable/ic_star_card"/>
+        <ImageButton
+            android:id="@+id/cardshare"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="10dp"
+            android:background="#FAFAFA"
+            android:src="@drawable/ic_share_card"/>
     </LinearLayout>
 
 </RelativeLayout>

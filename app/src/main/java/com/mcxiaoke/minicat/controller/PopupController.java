@@ -54,7 +54,7 @@ public class PopupController {
     private static QuickAction makePopup(Context context,
                                          final StatusModel status) {
         ActionItem reply = new ActionItem(QUICK_ACTION_ID_REPLY, context
-                .getResources().getDrawable(R.drawable.ic_reply));
+                .getResources().getDrawable(R.drawable.ic_reply_card));
 
         ActionItem delete = new ActionItem(QUICK_ACTION_ID_DELETE, context
                 .getResources().getDrawable(R.drawable.ic_delete));

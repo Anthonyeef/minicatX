@@ -8,7 +8,7 @@
     <ImageButton
         android:id="@+id/action_reply"
         style="@style/ActionItem"
-        android:src="@drawable/ic_reply" />
+        android:src="@drawable/ic_reply_card" />
 
     <ImageButton
         android:id="@+id/action_retweet"
