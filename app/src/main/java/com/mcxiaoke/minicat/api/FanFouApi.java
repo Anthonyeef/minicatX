@@ -40,8 +40,8 @@ import java.util.concurrent.TimeUnit;
 final class FanFouApi implements Api {
     private static final String TAG = "API";
     private static final String API_HOST = "http://api.fanfou.com";
-    private static final String API_KEY = "e5dd03165aebdba16611e1f4849ce2c3";
-    private static final String API_SECRET = "2a14fcbdebfb936a769840b4d5a9263b";
+    private static final String API_KEY = "f8f2e5b37b3be465faf4ec4d405d0a58";
+    private static final String API_SECRET = "d7b591d25789a8ee47decadacd425474";
     private static final String CALLBACK_URL = "http://m.fanfou.com";
 
     private static final boolean DEBUG = AppContext.DEBUG;

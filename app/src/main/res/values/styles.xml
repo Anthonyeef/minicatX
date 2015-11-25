@@ -137,11 +137,11 @@
 
     <style name="ListRow">
         <item name="android:textColor">@color/text_primary</item>
-        <item name="android:background">@drawable/layout_item_card</item>
+        <!--<item name="android:background">@drawable/layout_item_card</item>-->
         <item name="android:padding">@dimen/list_row_padding</item>
-        <item name="android:layout_marginLeft">6dp</item>
-        <item name="android:layout_marginRight">6dp</item>
-        <item name="android:layout_marginTop">6dp</item>
+        <item name="android:layout_marginLeft">3dp</item>
+        <item name="android:layout_marginRight">3dp</item>
+        <item name="android:layout_marginTop">3dp</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:minHeight">@dimen/list_row_preferred_height</item>

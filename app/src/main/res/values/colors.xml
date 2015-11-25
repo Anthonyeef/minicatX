@@ -22,7 +22,7 @@
 
     <!--Light Theme Colors-->
 
-    <color name="divider_color_light">#30999999</color>
+    <color name="divider_color_light">@color/background_secondary</color>
 
     <color name="actionbar_item_pressed">#33CCCCCC</color>
 

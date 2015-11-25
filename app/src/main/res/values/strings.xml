@@ -2,7 +2,7 @@
 <resources>
 
     <!-- common string -->
-    <string name="app_name">MiniCat</string>
+    <string name="app_name">MiniCatX</string>
     <string name="app_description">FanFou App for Android</string>
     <string name="app_version">Version:</string>
     <string name="app_support">Support:</string>

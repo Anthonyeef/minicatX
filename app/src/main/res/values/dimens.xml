@@ -46,7 +46,8 @@
     <dimen name="list_item_padding_status">10dp</dimen>
     <dimen name="list_row_preferred_height">48dp</dimen>
     <dimen name="list_row_preferred_height_large">60dp</dimen>
-    <dimen name="list_row_padding">10dp</dimen>
+    <!--<dimen name="list_row_padding">10dp</dimen>-->
+    <dimen name="list_row_padding">6dp</dimen>
     <dimen name="standard_spacing">5dp</dimen>
     <dimen name="write_image_preview_width">92dp</dimen>
     <dimen name="photo_grid_min_width">92dp</dimen>
