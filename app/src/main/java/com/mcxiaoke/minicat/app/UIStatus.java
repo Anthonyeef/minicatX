@@ -50,6 +50,7 @@ public class UIStatus extends UIBaseSupport {
             .showImageForEmptyUri(R.drawable.photo_error).
                     imageScaleType(ImageScaleType.IN_SAMPLE_INT)
             .bitmapConfig(Bitmap.Config.RGB_565).build();
+
     private static final String TAG = UIStatus.class.getSimpleName();
     private View vContainer;
     private String statusId;

@@ -119,6 +119,16 @@ public class ItemView extends RelativeLayout {
                 }
             }
         });
+
+        //TODO
+
+        replyCard.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
     }
 
     private void checkViewMode() {
@@ -290,6 +300,13 @@ public class ItemView extends RelativeLayout {
 
     public interface OnImageClickListener {
         public void onImageClick(ImageView view);
+    }
+
+    /*Anthonyeef create new action listener for card actions*/
+    //TODO
+
+    public interface OnCardItemClickListener {
+        public void onCardItemClick();
     }
 
 }
