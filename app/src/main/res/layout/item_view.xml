@@ -165,10 +165,9 @@
 
             <ImageView
                 android:visibility="gone"
-                android:padding="4dp"
+                android:padding="2dp"
                 android:id="@+id/photo"
                 android:layout_gravity="center_horizontal"
-                android:scaleType="fitXY"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
