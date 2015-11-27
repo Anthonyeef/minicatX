@@ -46,11 +46,10 @@
          The drawer is given a fixed width in dp and extends the full height of
          the container. A solid background is used for contrast
          with the content view. -->
-
-    <FrameLayout
-        android:id="@+id/left_drawer"
-        android:layout_gravity="start"
-        android:layout_width="260dp"
-        android:layout_height="match_parent" />
+    <!--<FrameLayout-->
+        <!--android:id="@+id/left_drawer"-->
+        <!--android:layout_gravity="start"-->
+        <!--android:layout_width="260dp"-->
+        <!--android:layout_height="match_parent" />-->
 
 </android.support.v4.widget.DrawerLayout>

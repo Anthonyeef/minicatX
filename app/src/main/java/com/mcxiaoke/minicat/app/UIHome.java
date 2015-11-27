@@ -3,7 +3,6 @@ package com.mcxiaoke.minicat.app;
 import android.app.AlertDialog;
 import android.app.DownloadManager;
 import android.app.Fragment;
-import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -74,7 +73,7 @@ public class UIHome extends UIBaseSupport implements MenuCallback,
     private ActionBarDrawerToggle mDrawerToggle;
     private CharSequence mDrawerTitle;
     private CharSequence mTitle;
-    private ViewGroup mDrawFrame;
+//    private ViewGroup mDrawFrame;
     private DownloadManager mDownloadManager;
     private int mCurrentIndex;
     private int mCurrentPage;
@@ -158,9 +157,9 @@ public class UIHome extends UIBaseSupport implements MenuCallback,
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (mDrawerToggle.onOptionsItemSelected(item)) {
-            return true;
-        }
+//        if (mDrawerToggle.onOptionsItemSelected(item)) {
+//            return true;
+//        }
 //        if (item.getItemId() == R.id.menu_write) {
 //            onMenuWriteClick();
 //            return true;
@@ -215,7 +214,8 @@ public class UIHome extends UIBaseSupport implements MenuCallback,
                 public void onUpdateReturned(int i, UpdateResponse updateResponse) {
                     LogUtil.v(TAG, "onUpdateReturned() response is " + updateResponse);
                     if (updateResponse != null && UCODE_HAS_UPDATE == i) {
-                        showUpdateDialog(updateResponse);
+//                        showUpdateDialog(updateResponse);
+                        return;
                     }
                 }
             });
@@ -293,7 +293,7 @@ public class UIHome extends UIBaseSupport implements MenuCallback,
         getActionBar().setDisplayHomeAsUpEnabled(true);
         getActionBar().setHomeButtonEnabled(true);
         setTitle(R.string.page_title_home);
-        mDrawerTitle = "@" + AppContext.getScreenName();
+//        mDrawerTitle = "@" + AppContext.getScreenName();
         mTitle = getTitle();
 
         mFloatingActionButton = (FloatingActionButton) findViewById(R.id.fab);
@@ -335,7 +335,7 @@ public class UIHome extends UIBaseSupport implements MenuCallback,
 
 
         mContainer = (ViewGroup) findViewById(R.id.content_frame);
-        mDrawFrame = (ViewGroup) findViewById(R.id.left_drawer);
+//        mDrawFrame = (ViewGroup) findViewById(R.id.left_drawer);
 
         mViewPager = (ViewPager) findViewById(R.id.viewpager);
 //        mViewPager.setOnPageChangeListener(this);
@@ -355,9 +355,9 @@ public class UIHome extends UIBaseSupport implements MenuCallback,
         setHomeTitle(mCurrentPage);
         mCurrentFragment = mPagesAdapter.getItem(mCurrentPage);
 //        setSlidingMenu(R.layout.menu_frame);
-        FragmentManager fm = getFragmentManager();
-        mMenuFragment = MenuFragment.newInstance();
-        fm.beginTransaction().replace(R.id.left_drawer, mMenuFragment).commit();
+//        FragmentManager fm = getFragmentManager();
+//        mMenuFragment = MenuFragment.newInstance();
+//        fm.beginTransaction().replace(R.id.left_drawer, mMenuFragment).commit();
     }
 
     /**
@@ -420,6 +420,7 @@ public class UIHome extends UIBaseSupport implements MenuCallback,
         setTitle("收件箱");
     }
 
+    /*TODO: Should be commented*/
     @Override
     public void onMenuItemSelected(int position, MenuItemResource menuItem) {
         log("onMenuItemSelected: " + menuItem + " position=" + position
@@ -492,6 +493,9 @@ public class UIHome extends UIBaseSupport implements MenuCallback,
         }
     }
 
+
+
+    /*TODO: All the code related to Drawer should be commented*/
     @Override
     public void onPageScrollStateChanged(int state) {
     }
@@ -532,6 +536,9 @@ public class UIHome extends UIBaseSupport implements MenuCallback,
         }
     }
 
+
+
+    /*Broadcast receiver. No need to change*/
     private void registerReceiver() {
         if (mReceiver == null) {
             final IntentFilter filter = new IntentFilter();

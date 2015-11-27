@@ -11,7 +11,7 @@
         <attr name="tabdividerPadding" format="dimension" />
         <attr name="tabPaddingLeftRight" format="dimension" />
         <attr name="scrollOffset" format="dimension" />
-        <attr name="tabBackground" format="reference" />
+        <!--<attr name="tabBackground" format="reference" />-->
         <attr name="shouldExpand" format="boolean" />
         <attr name="tabtextAllCaps" format="boolean" />
     </declare-styleable>
