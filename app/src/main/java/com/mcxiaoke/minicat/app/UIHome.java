@@ -14,6 +14,7 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
+import android.support.design.widget.NavigationView;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
@@ -40,7 +41,6 @@ import com.mcxiaoke.minicat.service.AutoCompleteService;
 import com.mcxiaoke.minicat.service.Constants;
 import com.mcxiaoke.minicat.util.LogUtil;
 import com.mcxiaoke.minicat.util.Utils;
-import com.melnykov.fab.FloatingActionButton;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.umeng.analytics.MobclickAgent;
 import com.umeng.update.UmengUpdateAgent;
@@ -66,6 +66,8 @@ public class UIHome extends UIBaseSupport implements MenuCallback,
     private Fragment mMenuFragment;
     private ViewPager mViewPager;
 
+    private NavigationView mNavigationView;
+
 //    private PagerTabStrip mPagerTabStrip;
 
     private HomePagesAdapter mPagesAdapter;
@@ -79,7 +81,7 @@ public class UIHome extends UIBaseSupport implements MenuCallback,
     private int mCurrentPage;
     private BroadcastReceiver mReceiver;
     private AbstractFragment mCurrentFragment;
-    private FloatingActionButton mFloatingActionButton;
+    private android.support.design.widget.FloatingActionButton mFloatingActionButton;
 
 
     private void log(String message) {
@@ -290,13 +292,17 @@ public class UIHome extends UIBaseSupport implements MenuCallback,
     protected void setLayout() {
         setContentView(R.layout.ui_home);
         setProgressBarIndeterminateVisibility(false);
-        getActionBar().setDisplayHomeAsUpEnabled(true);
-        getActionBar().setHomeButtonEnabled(true);
-        setTitle(R.string.page_title_home);
+//        getActionBar().setDisplayHomeAsUpEnabled(true);
+//        getActionBar().setHomeButtonEnabled(true);
+
+
+        mNavigationView = (NavigationView) findViewById(R.id.left_drawer);
+
+//        setTitle(R.string.page_title_home);
 //        mDrawerTitle = "@" + AppContext.getScreenName();
         mTitle = getTitle();
 
-        mFloatingActionButton = (FloatingActionButton) findViewById(R.id.fab);
+        mFloatingActionButton = (android.support.design.widget.FloatingActionButton) findViewById(R.id.fab);
         mFloatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -316,14 +322,14 @@ public class UIHome extends UIBaseSupport implements MenuCallback,
 
             @Override
             public void onDrawerOpened(View drawerView) {
-                getActionBar().setTitle(mDrawerTitle);
+//                getActionBar().setTitle(mDrawerTitle);
                 invalidateOptionsMenu();
             }
 
             @Override
             public void onDrawerClosed(View drawerView) {
-                getActionBar().setTitle(mTitle);
-                invalidateOptionsMenu();
+//                getActionBar().setTitle(mTitle);
+//                invalidateOptionsMenu();
             }
 
             @Override
@@ -393,7 +399,8 @@ public class UIHome extends UIBaseSupport implements MenuCallback,
     @Override
     public void setTitle(CharSequence title) {
         mTitle = title;
-        getActionBar().setTitle(mTitle);
+//        getActionBar().setTitle(mTitle);
+        return;
     }
 
     private void switchContent(AbstractFragment fragment) {
@@ -484,7 +491,7 @@ public class UIHome extends UIBaseSupport implements MenuCallback,
     @Override
     public void onPageSelected(int position) {
         mCurrentPage = position;
-        setHomeTitle(position);
+//        setHomeTitle(position);
         mCurrentFragment = mPagesAdapter.getItem(mCurrentPage);
         if (position == 0) {
 //            setTouchModeAbove(SlidingMenu.TOUCHMODE_MARGIN);

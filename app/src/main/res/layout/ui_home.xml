@@ -9,7 +9,7 @@
 
     <!-- As the main content view, the view below consumes the entire
          space available using match_parent in both dimensions. -->
-    <FrameLayout
+    <android.support.design.widget.CoordinatorLayout
         android:id="@+id/content_frame"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -27,19 +27,23 @@
                 android:padding="4dp" />-->
         </android.support.v4.view.ViewPager>
 
-        <com.melnykov.fab.FloatingActionButton
+        <android.support.design.widget.FloatingActionButton
             android:id="@+id/fab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|right"
             android:layout_margin="16dp"
-            android:src="@drawable/ic_mode_edit_24dp"
-            fab:fab_type="normal"
-            fab:fab_shadow="true"
-            fab:fab_colorNormal="@color/holo_primary"/>
-    </FrameLayout>
+            android:background="@color/holo_secondary"
+            android:src="@drawable/ic_mode_edit_24dp"/>
+    </android.support.design.widget.CoordinatorLayout>
 
-
+    <!--TODO: Add new Drawer here-->
+    <android.support.design.widget.NavigationView
+        android:id="@+id/left_drawer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        />
     <!-- android:layout_gravity="check" tells DrawerLayout to treat
          this as a sliding drawer on the left side for left-to-right
          languages and on the right side for right-to-left languages.

@@ -15,7 +15,7 @@
         <item name="android:backgroundSplit">@drawable/actionbar_background</item>
     </style>
 
-    <style name="AppTheme" parent="android:Theme.Material.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="android:windowDrawsSystemBarBackgrounds">true</item>
         <item name="android:colorPrimary">@color/holo_primary</item>
         <item name="android:colorPrimaryDark">@color/holo_primary_dark</item>

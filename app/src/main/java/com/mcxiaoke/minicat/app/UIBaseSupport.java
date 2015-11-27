@@ -56,8 +56,8 @@ public abstract class UIBaseSupport extends Activity implements OnClickListener 
         this.mInflater = LayoutInflater.from(this);
         this.mResources = getResources();
         this.mActionBar = getActionBar();
-        this.mActionBar.setDisplayHomeAsUpEnabled(true);
-        this.mActionBar.setDisplayUseLogoEnabled(true);
+//        this.mActionBar.setDisplayHomeAsUpEnabled(true);
+//        this.mActionBar.setDisplayUseLogoEnabled(true);
         this.mDisplayMetrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(mDisplayMetrics);
     }
