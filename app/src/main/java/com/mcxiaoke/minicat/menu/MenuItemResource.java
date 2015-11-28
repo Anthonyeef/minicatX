@@ -1,11 +1,14 @@
 /**
  *
- */
+ *//*
+
 package com.mcxiaoke.minicat.menu;
 
+*/
 /**
  * @author mcxiaoke
- */
+ *//*
+
 public class MenuItemResource {
     public final int id;
     public final int type;
@@ -93,3 +96,4 @@ public class MenuItemResource {
     }
 
 }
+*/

@@ -2,7 +2,6 @@ package com.mcxiaoke.minicat.app;
 
 import android.app.AlertDialog;
 import android.app.DownloadManager;
-import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -14,9 +13,8 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
-import android.support.design.widget.TabLayout;
-import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.support.v4.widget.DrawerLayout;
@@ -48,12 +46,16 @@ import com.umeng.update.UpdateResponse;
 
 import org.oauthsimple.utils.MimeUtils;
 
+import butterknife.Bind;
+import butterknife.ButterKnife;
+
 
 /**
  * @author mcxiaoke
+ * @mantainer Anthonyeef 2015-11-24
  */
-public class UIHome extends UIBaseSupport implements /*MenuCallback,*/
-        OnPageChangeListener /*DrawerLayout.DrawerListener*/ {
+public class UIHome extends UIBaseSupport /*MenuCallback,*/
+        /*OnPageChangeListener*/ /*DrawerLayout.DrawerListener*/ {
 
     public static final String TAG = UIHome.class.getSimpleName();
     private static final int UCODE_HAS_UPDATE = 0;
@@ -62,29 +64,22 @@ public class UIHome extends UIBaseSupport implements /*MenuCallback,*/
     private static final int UCODE_IO_ERROR = 3;
     private static final long TIME_THREE_DAYS = 1000 * 3600 * 24 * 5L;
     private ViewGroup mContainer;
-    private Fragment mMenuFragment;
     private ViewPager mViewPager;
 
-//    private PagerTabStrip mPagerTabStrip;
-
     private HomePagesAdapter mPagesAdapter;
-    private DrawerLayout mDrawerLayout;
-    private ActionBarDrawerToggle mDrawerToggle;
-    private CharSequence mDrawerTitle;
-    private CharSequence mTitle;
-//    private ViewGroup mDrawFrame;
     private DownloadManager mDownloadManager;
-    private int mCurrentIndex;
     private int mCurrentPage;
     private BroadcastReceiver mReceiver;
     private AbstractFragment mCurrentFragment;
 
-    private android.support.design.widget.FloatingActionButton mFloatingActionButton;
-    private Toolbar mToolbar;
-    private TabLayout mTabLayout;
-    private NavigationView mNavigationView;
-
-
+    @Bind(R.id.drawer_layout)
+    DrawerLayout mDrawerLayout;
+    @Bind(R.id.fab)
+    FloatingActionButton mFloatingActionButton;
+    @Bind(R.id.toolbar)
+    Toolbar mToolbar;
+    @Bind(R.id.left_drawer)
+    NavigationView mNavigationView;
 
     private void log(String message) {
         LogUtil.v(TAG, message);
@@ -275,24 +270,18 @@ public class UIHome extends UIBaseSupport implements /*MenuCallback,*/
         }
     }
 
+
+
+
     protected void setLayout() {
         setContentView(R.layout.ui_home);
-        setProgressBarIndeterminateVisibility(false);
-        mTitle = getTitle();
+        ButterKnife.bind(this);
 
-        mToolbar = (Toolbar) findViewById(R.id.toolbar);
+        setProgressBarIndeterminateVisibility(false);
+
         setSupportActionBar(mToolbar);
 
-        mFloatingActionButton = (android.support.design.widget.FloatingActionButton) findViewById(R.id.fab);
-        mFloatingActionButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                UIController.showWrite(mContext);
-            }
-        });
-
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        mNavigationView = (NavigationView) findViewById(R.id.left_drawer);
         mNavigationView.setNavigationItemSelectedListener(
                 new NavigationView.OnNavigationItemSelectedListener() {
                     @Override
@@ -302,16 +291,41 @@ public class UIHome extends UIBaseSupport implements /*MenuCallback,*/
                 }
         );
 
+        mViewPager = (ViewPager) findViewById(R.id.viewpager);
+        mPagesAdapter = new HomePagesAdapter(getFragmentManager(), this);
+        mViewPager.setAdapter(mPagesAdapter);
+//        mViewPager.setOnPageChangeListener(this);
+        mViewPager.addOnPageChangeListener(new OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 
+            }
 
+            @Override
+            public void onPageSelected(int position) {
+                mCurrentPage = position;
+                mCurrentFragment = mPagesAdapter.getItem(mCurrentPage);
+                if (position == 0) {
+                } else {
+                }
+
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
+
+        mFloatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                UIController.showWrite(mContext);
+            }
+        });
 
         mContainer = (ViewGroup) findViewById(R.id.content_frame);
 
-        mViewPager = (ViewPager) findViewById(R.id.viewpager);
-
-        mPagesAdapter = new HomePagesAdapter(getFragmentManager(), this);
-        mViewPager.setAdapter(mPagesAdapter);
-        mViewPager.setOnPageChangeListener(this);
 
         mCurrentFragment = mPagesAdapter.getItem(mCurrentPage);
     }
@@ -348,7 +362,7 @@ public class UIHome extends UIBaseSupport implements /*MenuCallback,*/
 
     @Override
     public void setTitle(CharSequence title) {
-        mTitle = title;
+//        mTitle = title;
 //        getActionBar().setTitle(mTitle);
         return;
     }
@@ -378,28 +392,6 @@ public class UIHome extends UIBaseSupport implements /*MenuCallback,*/
     }
 
 
-    @Override
-    public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-    }
-
-    @Override
-    public void onPageSelected(int position) {
-        mCurrentPage = position;
-//        setHomeTitle(position);
-        mCurrentFragment = mPagesAdapter.getItem(mCurrentPage);
-        if (position == 0) {
-//            setTouchModeAbove(SlidingMenu.TOUCHMODE_MARGIN);
-        } else {
-//            setTouchModeAbove(SlidingMenu.TOUCHMODE_NONE);
-        }
-    }
-
-
-
-    /*TODO: All the code related to Drawer should be commented*/
-    @Override
-    public void onPageScrollStateChanged(int state) {
-    }
 
 
     /*Broadcast receiver. No need to change*/

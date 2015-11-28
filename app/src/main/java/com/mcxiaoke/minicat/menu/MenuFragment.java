@@ -1,3 +1,4 @@
+/*
 package com.mcxiaoke.minicat.menu;
 
 import android.app.Activity;
@@ -30,10 +31,12 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 import java.util.ArrayList;
 import java.util.List;
 
+*/
 /**
  * @author mcxiaoke
  * @version 2.1 2012.04.24
- */
+ *//*
+
 public class MenuFragment extends Fragment implements AdapterView.OnItemClickListener {
     private static final boolean DEBUG = AppContext.DEBUG;
     private static final String TAG = MenuFragment.class.getSimpleName();
@@ -217,9 +220,11 @@ public class MenuFragment extends Fragment implements AdapterView.OnItemClickLis
                 .id(MENU_ID_TOPIC).text("热门话题")
                 .iconId(R.drawable.ic_item_topic).highlight(false).build();
 
+*/
 /*        MenuItemResource drafts = MenuItemResource.newBuilder()
                 .id(MENU_ID_RECORD).text("草稿箱")
-                .iconId(R.drawable.ic_item_record).highlight(false).build();*/
+                .iconId(R.drawable.ic_item_record).highlight(false).build();*//*
+
 //        MenuItemResource logout = MenuItemResource.newBuilder()
 //                .id(MENU_ID_LOGOUT).text("切换帐号")
 //                .iconId(R.drawable.ic_item_logout).highlight(false).build();
@@ -233,9 +238,11 @@ public class MenuFragment extends Fragment implements AdapterView.OnItemClickLis
         // .id(MENU_ID_THEME).text("主题切换")
         // .iconId(R.drawable.ic_item_theme).highlight(false).build();
 
+*/
 /*        MenuItemResource blog = MenuItemResource.newBuilder()
                 .id(MENU_ID_DIGEST).text("饭否语录")
-                .iconId(R.drawable.ic_item_digest).highlight(false).build();*/
+                .iconId(R.drawable.ic_item_digest).highlight(false).build();*//*
+
 
         MenuItemResource about = MenuItemResource.newBuilder()
                 .id(MENU_ID_ABOUT).text("关于").iconId(R.drawable.ic_item_info)
@@ -334,3 +341,4 @@ public class MenuFragment extends Fragment implements AdapterView.OnItemClickLis
     }
 
 }
+*/

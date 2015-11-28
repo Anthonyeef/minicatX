@@ -7,11 +7,6 @@
               android:theme="@style/ThemeOverlay.AppCompat.Dark"
               android:orientation="vertical"
               android:gravity="bottom">
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/nav_avatar"
-        android:src="@drawable/ic_mood"
-        android:layout_width="45dp"
-        android:layout_height="45dp"/>
 
     <TextView
         android:id="@+id/nav_username"

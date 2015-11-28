@@ -3,23 +3,22 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_search"
-            android:icon="@drawable/ic_search"
             android:title="Home" />
+            <!--android:icon="@drawable/ic_search"-->
         <item
             android:id="@+id/nav_fav"
-            android:icon="@drawable/ic_favorite_0"
             android:title="Messages" />
+            <!--android:icon="@drawable/ic_favorite_0"-->
     </group>
-
-        <menu>
+        <!--<menu>
             <item
                 android:title="Accounts"/>
-                <!--android:icon="@drawable/ic_dashboard"-->
+                &lt;!&ndash;android:icon="@drawable/ic_dashboard"&ndash;&gt;
             <item
                 android:title="Drafts"/>
-                <!--android:icon="@drawable/ic_forum"-->
+                &lt;!&ndash;android:icon="@drawable/ic_forum"&ndash;&gt;
             <item
                 android:title="Settings"/>
-                <!--android:icon="@drawable/ic_forum"-->
-        </menu>
+                &lt;!&ndash;android:icon="@drawable/ic_forum"&ndash;&gt;
+        </menu>-->
 </menu>
