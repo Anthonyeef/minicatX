@@ -20,6 +20,9 @@
         <item name="android:colorPrimary">@color/holo_primary</item>
         <item name="android:colorPrimaryDark">@color/holo_primary_dark</item>
         <item name="android:colorAccent">@color/holo_secondary</item>
+        <item name="android:textColorPrimary">@color/text_primary</item>
+
+
         <item name="colorPrimary">@color/holo_primary</item>
         <item name="colorPrimaryDark">@color/holo_primary_dark</item>
         <item name="colorAccent">@color/holo_secondary</item>

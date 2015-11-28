@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_search"
+            android:icon="@drawable/ic_search"
+            android:title="Home" />
+        <item
+            android:id="@+id/nav_fav"
+            android:icon="@drawable/ic_favorite_0"
+            android:title="Messages" />
+    </group>
+
+        <menu>
+            <item
+                android:title="Accounts"/>
+                <!--android:icon="@drawable/ic_dashboard"-->
+            <item
+                android:title="Drafts"/>
+                <!--android:icon="@drawable/ic_forum"-->
+            <item
+                android:title="Settings"/>
+                <!--android:icon="@drawable/ic_forum"-->
+        </menu>
+</menu>

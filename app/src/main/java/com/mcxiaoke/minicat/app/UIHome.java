@@ -34,9 +34,6 @@ import com.mcxiaoke.minicat.controller.UIController;
 import com.mcxiaoke.minicat.fragment.AbstractFragment;
 import com.mcxiaoke.minicat.fragment.ConversationListFragment;
 import com.mcxiaoke.minicat.fragment.ProfileFragment;
-import com.mcxiaoke.minicat.menu.MenuCallback;
-import com.mcxiaoke.minicat.menu.MenuFragment;
-import com.mcxiaoke.minicat.menu.MenuItemResource;
 import com.mcxiaoke.minicat.preference.PreferenceHelper;
 import com.mcxiaoke.minicat.push.PushService;
 import com.mcxiaoke.minicat.service.AutoCompleteService;
@@ -55,8 +52,8 @@ import org.oauthsimple.utils.MimeUtils;
 /**
  * @author mcxiaoke
  */
-public class UIHome extends UIBaseSupport implements MenuCallback,
-        OnPageChangeListener, DrawerLayout.DrawerListener {
+public class UIHome extends UIBaseSupport implements /*MenuCallback,*/
+        OnPageChangeListener /*DrawerLayout.DrawerListener*/ {
 
     public static final String TAG = UIHome.class.getSimpleName();
     private static final int UCODE_HAS_UPDATE = 0;
@@ -67,8 +64,6 @@ public class UIHome extends UIBaseSupport implements MenuCallback,
     private ViewGroup mContainer;
     private Fragment mMenuFragment;
     private ViewPager mViewPager;
-
-    private NavigationView mNavigationView;
 
 //    private PagerTabStrip mPagerTabStrip;
 
@@ -87,6 +82,7 @@ public class UIHome extends UIBaseSupport implements MenuCallback,
     private android.support.design.widget.FloatingActionButton mFloatingActionButton;
     private Toolbar mToolbar;
     private TabLayout mTabLayout;
+    private NavigationView mNavigationView;
 
 
 
@@ -298,19 +294,10 @@ public class UIHome extends UIBaseSupport implements MenuCallback,
     protected void setLayout() {
         setContentView(R.layout.ui_home);
         setProgressBarIndeterminateVisibility(false);
-//        getActionBar().setDisplayHomeAsUpEnabled(true);
-//        getActionBar().setHomeButtonEnabled(true);
-
-
-        mNavigationView = (NavigationView) findViewById(R.id.left_drawer);
-
-//        setTitle(R.string.page_title_home);
-//        mDrawerTitle = "@" + AppContext.getScreenName();
         mTitle = getTitle();
 
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(mToolbar);
-        /*mTabLayout = (TabLayout) findViewById(R.id.tabs);*/
 
         mFloatingActionButton = (android.support.design.widget.FloatingActionButton) findViewById(R.id.fab);
         mFloatingActionButton.setOnClickListener(new View.OnClickListener() {
@@ -321,61 +308,30 @@ public class UIHome extends UIBaseSupport implements MenuCallback,
         });
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        mDrawerLayout.setScrimColor(getResources().getColor(R.color.drawer_dim_background));
-        mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout,
-                R.drawable.ic_drawer, R.string.drawer_open, R.string.drawer_close) {
+        mNavigationView = (NavigationView) findViewById(R.id.left_drawer);
+        mNavigationView.setNavigationItemSelectedListener(
+                new NavigationView.OnNavigationItemSelectedListener() {
+                    @Override
+                    public boolean onNavigationItemSelected(MenuItem item) {
+                        return false;
+                    }
+                }
+        );
 
-            @Override
-            public void onDrawerSlide(View drawerView, float slideOffset) {
-                super.onDrawerSlide(drawerView, slideOffset);
-            }
 
-            @Override
-            public void onDrawerOpened(View drawerView) {
-//                getActionBar().setTitle(mDrawerTitle);
-                invalidateOptionsMenu();
-            }
-
-            @Override
-            public void onDrawerClosed(View drawerView) {
-//                getActionBar().setTitle(mTitle);
-//                invalidateOptionsMenu();
-            }
-
-            @Override
-            public void onDrawerStateChanged(int newState) {
-                super.onDrawerStateChanged(newState);
-            }
-        };
-        mDrawerLayout.setDrawerListener(mDrawerToggle);
 
 
         mContainer = (ViewGroup) findViewById(R.id.content_frame);
-//        mDrawFrame = (ViewGroup) findViewById(R.id.left_drawer);
 
         mViewPager = (ViewPager) findViewById(R.id.viewpager);
-//        mViewPager.setOnPageChangeListener(this);
 
         mPagesAdapter = new HomePagesAdapter(getFragmentManager(), this);
         mViewPager.setAdapter(mPagesAdapter);
         mViewPager.setOnPageChangeListener(this);
 
-        /*mTabLayout.setupWithViewPager(mViewPager);*/
-/*        final int highlightColor = getResources().getColor(R.color.holo_secondary);
-        mPagerTabStrip = (PagerTabStrip) findViewById(R.id.viewpager_strip);
-        mPagerTabStrip.setBackgroundResource(R.color.background_secondary);
-        mPagerTabStrip.setNonPrimaryAlpha(0.4f);
-        mPagerTabStrip.setDrawFullUnderline(false);
-        mPagerTabStrip.setTabIndicatorColor(highlightColor);
-        mPagerTabStrip.setTextColor(highlightColor);*/
-
-        setHomeTitle(mCurrentPage);
         mCurrentFragment = mPagesAdapter.getItem(mCurrentPage);
-//        setSlidingMenu(R.layout.menu_frame);
-//        FragmentManager fm = getFragmentManager();
-//        mMenuFragment = MenuFragment.newInstance();
-//        fm.beginTransaction().replace(R.id.left_drawer, mMenuFragment).commit();
     }
+
 
     /**
      * When using the ActionBarDrawerToggle, you must call it during
@@ -386,7 +342,6 @@ public class UIHome extends UIBaseSupport implements MenuCallback,
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
         // Sync the toggle state after onRestoreInstanceState has occurred.
-        mDrawerToggle.syncState();
     }
 
     @Override
@@ -404,7 +359,7 @@ public class UIHome extends UIBaseSupport implements MenuCallback,
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
         // Pass any configuration change to the drawer toggls
-        mDrawerToggle.onConfigurationChanged(newConfig);
+//        mDrawerToggle.onConfigurationChanged(newConfig);
     }
 
     @Override
@@ -438,62 +393,6 @@ public class UIHome extends UIBaseSupport implements MenuCallback,
         setTitle("收件箱");
     }
 
-    /*TODO: Should be commented*/
-    @Override
-    public void onMenuItemSelected(int position, MenuItemResource menuItem) {
-        log("onMenuItemSelected: " + menuItem + " position=" + position
-                + " mCurrentIndex=" + mCurrentIndex);
-        if (position == mCurrentIndex) {
-            mDrawerLayout.closeDrawer(Gravity.LEFT);
-//            getSlidingMenu().toggle();
-            return;
-        }
-        int id = menuItem.id;
-        switch (id) {
-            case MenuFragment.MENU_ID_HOME:
-                getFragmentManager().beginTransaction().remove(mCurrentFragment)
-                        .commit();
-                mDrawerLayout.closeDrawer(Gravity.LEFT);
-//                getSlidingMenu().showContent();
-                setHomeTitle(mCurrentPage);
-                mCurrentFragment = mPagesAdapter.getItem(mCurrentPage);
-                mCurrentIndex = position;
-                break;
-            case MenuFragment.MENU_ID_PROFILE:
-                mCurrentIndex = position;
-                showProfileFragment();
-                break;
-            case MenuFragment.MENU_ID_MESSAGE:
-                mCurrentIndex = position;
-                showMessageFragment();
-                break;
-            case MenuFragment.MENU_ID_TOPIC:
-                UIController.showTopic(this);
-                break;
-            case MenuFragment.MENU_ID_RECORD:
-                UIController.showRecords(this);
-                break;
-            case MenuFragment.MENU_ID_DIGEST:
-                UIController.showFanfouBlog(this);
-                break;
-            case MenuFragment.MENU_ID_THEME:
-                break;
-            case MenuFragment.MENU_ID_OPTION:
-                UIController.showOption(this);
-                break;
-            case MenuFragment.MENU_ID_LOGOUT:
-                onMenuLogoutClick();
-                break;
-            case MenuFragment.MENU_ID_ABOUT:
-                UIController.showAbout(this);
-                break;
-            case MenuFragment.MENU_ID_DEBUG:
-                UIController.showDebug(this);
-                break;
-            default:
-                break;
-        }
-    }
 
     @Override
     public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
@@ -517,43 +416,6 @@ public class UIHome extends UIBaseSupport implements MenuCallback,
     @Override
     public void onPageScrollStateChanged(int state) {
     }
-
-    @Override
-    public void onDrawerSlide(View drawerView, float slideOffset) {
-    }
-
-    @Override
-    public void onDrawerOpened(View drawerView) {
-        getActionBar().setTitle(mDrawerTitle);
-        invalidateOptionsMenu(); // creates call to onPrepareOptionsMenu()
-    }
-
-    @Override
-    public void onDrawerClosed(View drawerView) {
-        getActionBar().setTitle(mTitle);
-        invalidateOptionsMenu(); // creates call to onPrepareOptionsMenu()
-    }
-
-    @Override
-    public void onDrawerStateChanged(int newState) {
-    }
-
-    private void setHomeTitle(int page) {
-        switch (page) {
-            case 0:
-                setTitle(getString(R.string.page_title_home));
-                break;
-            case 1:
-                setTitle(getString(R.string.page_title_mention));
-                break;
-            case 2:
-                setTitle(getString(R.string.page_title_public));
-                break;
-            default:
-                break;
-        }
-    }
-
 
 
     /*Broadcast receiver. No need to change*/
