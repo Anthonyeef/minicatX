@@ -40,6 +40,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="?attr/actionBarSize"
+            android:paddingTop="3dp"
             app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
             <!--<android.support.v4.view.PagerTabStrip
@@ -53,10 +54,13 @@
             android:id="@+id/fab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom|right"
+            android:layout_gravity="bottom|end|right"
             android:layout_margin="16dp"
             android:background="@color/holo_secondary"
-            android:src="@drawable/ic_mode_edit_24dp"/>
+            android:src="@drawable/ic_mode_edit_24dp"
+            app:layout_behavior="com.mcxiaoke.minicat.ui.behavior.ScrollAwareFABBehavior"
+            app:layout_anchor="@id/viewpager"
+            app:layout_anchorGravity="bottom|right|end"/>
     </android.support.design.widget.CoordinatorLayout>
 
     <!--TODO: Add new Drawer here-->
