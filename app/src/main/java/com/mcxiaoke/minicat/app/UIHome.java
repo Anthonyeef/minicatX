@@ -15,10 +15,12 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.design.widget.NavigationView;
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -81,7 +83,11 @@ public class UIHome extends UIBaseSupport implements MenuCallback,
     private int mCurrentPage;
     private BroadcastReceiver mReceiver;
     private AbstractFragment mCurrentFragment;
+
     private android.support.design.widget.FloatingActionButton mFloatingActionButton;
+    private Toolbar mToolbar;
+    private TabLayout mTabLayout;
+
 
 
     private void log(String message) {
@@ -302,6 +308,10 @@ public class UIHome extends UIBaseSupport implements MenuCallback,
 //        mDrawerTitle = "@" + AppContext.getScreenName();
         mTitle = getTitle();
 
+        mToolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(mToolbar);
+        /*mTabLayout = (TabLayout) findViewById(R.id.tabs);*/
+
         mFloatingActionButton = (android.support.design.widget.FloatingActionButton) findViewById(R.id.fab);
         mFloatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -350,6 +360,7 @@ public class UIHome extends UIBaseSupport implements MenuCallback,
         mViewPager.setAdapter(mPagesAdapter);
         mViewPager.setOnPageChangeListener(this);
 
+        /*mTabLayout.setupWithViewPager(mViewPager);*/
 /*        final int highlightColor = getResources().getColor(R.color.holo_secondary);
         mPagerTabStrip = (PagerTabStrip) findViewById(R.id.viewpager_strip);
         mPagerTabStrip.setBackgroundResource(R.color.background_secondary);

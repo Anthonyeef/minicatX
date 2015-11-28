@@ -1,6 +1,7 @@
 package com.mcxiaoke.minicat.fragment;
 
 import android.database.Cursor;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -42,6 +43,9 @@ public abstract class BaseTimlineFragment extends SwipeRefreshListFragment {
         super.onActivityCreated(savedInstanceState);
         if (getType() == StatusModel.TYPE_PUBLIC) {
             getListView().setRefreshMode(EndlessListView.RefreshMode.NONE);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                getListView().setNestedScrollingEnabled(true);
+            }
         }
     }
 
