@@ -18,7 +18,6 @@ import android.view.View.OnClickListener;
 import android.view.Window;
 
 import com.mcxiaoke.minicat.AppContext;
-import com.mcxiaoke.minicat.R;
 import com.mcxiaoke.minicat.controller.UIController;
 import com.mcxiaoke.minicat.util.LogUtil;
 import com.umeng.analytics.MobclickAgent;
@@ -56,7 +55,7 @@ public abstract class UIBaseSupport extends AppCompatActivity implements OnClick
         this.mContext = this;
         this.mInflater = LayoutInflater.from(this);
         this.mResources = getResources();
-        this.mActionBar = getActionBar();
+//        this.mActionBar = getActionBar();
 //        this.mActionBar.setDisplayHomeAsUpEnabled(true);
 //        this.mActionBar.setDisplayUseLogoEnabled(true);
         this.mDisplayMetrics = new DisplayMetrics();
@@ -110,12 +109,12 @@ public abstract class UIBaseSupport extends AppCompatActivity implements OnClick
     public boolean onOptionsItemSelected(MenuItem item) {
         debug("onOptionsItemSelected() item=" + item);
         switch (item.getItemId()) {
-            case android.R.id.home:
+           /* case android.R.id.home:
                 onMenuHomeClick();
                 return true;
             case R.id.menu_refresh:
                 onMenuRefreshClick();
-                return true;
+                return true;*/
 //            case R.id.menu_write:
 //                onMenuWriteClick();
 //                return true;

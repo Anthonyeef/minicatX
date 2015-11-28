@@ -127,12 +127,6 @@ public class UIHome extends UIBaseSupport implements /*MenuCallback,*/
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         return super.onCreateOptionsMenu(menu);
-        // Get the SearchView and set the searchable configuration
-//        SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
-//        SearchView searchView = (SearchView) menu.findItem(R.id.menu_search).getActionView();
-        // Assumes current activity is the searchable activity
-//        searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
-//        searchView.setIconifiedByDefault(true); // Do not iconify the widget; expand it by default
     }    private BroadcastReceiver mOnDownloadCompleteReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
@@ -146,13 +140,6 @@ public class UIHome extends UIBaseSupport implements /*MenuCallback,*/
 
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
-//        boolean drawerOpen = mDrawerLayout.isDrawerOpen(mDrawFrame);
-//        menu.findItem(R.id.menu_refresh).setVisible(!drawerOpen);
-//        menu.findItem(R.id.menu_write).setVisible(!drawerOpen);
-//        if (drawerOpen) {
-//            return true;
-//        }
-//        return super.onPrepareOptionsMenu(menu);
         if (mRefreshMenuItem != null) {
             mRefreshMenuItem.setVisible(false);
         }
@@ -161,9 +148,6 @@ public class UIHome extends UIBaseSupport implements /*MenuCallback,*/
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-//        if (mDrawerToggle.onOptionsItemSelected(item)) {
-//            return true;
-//        }
 //        if (item.getItemId() == R.id.menu_write) {
 //            onMenuWriteClick();
 //            return true;
