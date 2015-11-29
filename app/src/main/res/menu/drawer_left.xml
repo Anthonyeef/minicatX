@@ -10,15 +10,19 @@
             android:title="Messages" />
             <!--android:icon="@drawable/ic_favorite_0"-->
     </group>
-        <!--<menu>
+    <!--<group>
+    </group>-->
+    <item android:title="Whatever">
+        <menu>
             <item
                 android:title="Accounts"/>
-                &lt;!&ndash;android:icon="@drawable/ic_dashboard"&ndash;&gt;
             <item
                 android:title="Drafts"/>
-                &lt;!&ndash;android:icon="@drawable/ic_forum"&ndash;&gt;
             <item
                 android:title="Settings"/>
+        </menu>
+    </item>
+        <!--<menu>
                 &lt;!&ndash;android:icon="@drawable/ic_forum"&ndash;&gt;
         </menu>-->
 </menu>

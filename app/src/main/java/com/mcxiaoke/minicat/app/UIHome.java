@@ -13,6 +13,7 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
+import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.ViewPager;
@@ -28,6 +29,7 @@ import android.view.ViewGroup;
 import com.mcxiaoke.minicat.AppContext;
 import com.mcxiaoke.minicat.R;
 import com.mcxiaoke.minicat.adapter.HomePagesAdapter;
+import com.mcxiaoke.minicat.config.AccountInfo;
 import com.mcxiaoke.minicat.controller.UIController;
 import com.mcxiaoke.minicat.fragment.AbstractFragment;
 import com.mcxiaoke.minicat.fragment.ConversationListFragment;
@@ -71,6 +73,7 @@ public class UIHome extends UIBaseSupport /*MenuCallback,*/
     private int mCurrentPage;
     private BroadcastReceiver mReceiver;
     private AbstractFragment mCurrentFragment;
+//    private TextView username;
 
     @Bind(R.id.drawer_layout)
     DrawerLayout mDrawerLayout;
@@ -80,11 +83,14 @@ public class UIHome extends UIBaseSupport /*MenuCallback,*/
     Toolbar mToolbar;
     @Bind(R.id.left_drawer)
     NavigationView mNavigationView;
+//    @Bind(R.id.nav_username)
+//    TextView username;
 
     private void log(String message) {
         LogUtil.v(TAG, message);
     }
 
+    @Nullable
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -291,6 +297,7 @@ public class UIHome extends UIBaseSupport /*MenuCallback,*/
                 }
         );
 
+        setupNavigationDrawer();
         mViewPager = (ViewPager) findViewById(R.id.viewpager);
         mPagesAdapter = new HomePagesAdapter(getFragmentManager(), this);
         mViewPager.setAdapter(mPagesAdapter);
@@ -326,10 +333,16 @@ public class UIHome extends UIBaseSupport /*MenuCallback,*/
 
         mContainer = (ViewGroup) findViewById(R.id.content_frame);
 
-
         mCurrentFragment = mPagesAdapter.getItem(mCurrentPage);
     }
 
+    protected void setupNavigationDrawer() {
+        final AccountInfo accountInfo = AppContext.getAccountInfo();
+        if (accountInfo != null) {
+
+        }
+
+    }
 
     /**
      * When using the ActionBarDrawerToggle, you must call it during
