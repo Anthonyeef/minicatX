@@ -1,7 +1,7 @@
 蘑菇饭X
 ============
 
-<img src="artworks/Screenshots/Screenshot_2015-11-25 23-36-46.jpg" width="45%">
+<img src="artworks/Screenshots/Screenshot_2015-11-28 23-36-46.jpg" width="45%">
 
 因蘑菇饭的原作者已不再继续维护，所以我 fork 了蘑菇饭的项目，一边阅读源代码，一边做力所能及的修改。
 
