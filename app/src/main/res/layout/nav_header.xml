@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:id="@+id/header_nav"
-              android:layout_width="match_parent"
-              android:layout_height="192dp"
-              android:background="?attr/colorPrimaryDark"
-              android:padding="16dp"
-              android:theme="@style/ThemeOverlay.AppCompat.Dark">
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/header_nav"
+                android:layout_width="match_parent"
+                android:layout_height="192dp"
+                android:background="?attr/colorPrimaryDark"
+                android:padding="16dp"
+                android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/nav_avatar"
         android:layout_marginBottom="10dp"
         android:layout_width="72dp"
-        android:layout_height="72dp"/>
+        android:layout_height="72dp"
+        app:civ_border_width="2dp"
+        app:civ_border_color="#FFF"/>
     <TextView
         android:id="@+id/nav_username"
         android:layout_width="match_parent"

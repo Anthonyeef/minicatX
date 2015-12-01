@@ -348,6 +348,12 @@ public class UIHome extends UIBaseSupport /*MenuCallback,*/
             name.setText(accountInfo.getScreenName());
             Picasso.with(this).load(accountInfo.getProfileImage()).into(avatar);
         }
+        avatar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onMenuLogoutClick();
+            }
+        });
 
     }
 
