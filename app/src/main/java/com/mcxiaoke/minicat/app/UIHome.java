@@ -25,6 +25,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.mcxiaoke.minicat.AppContext;
 import com.mcxiaoke.minicat.R;
@@ -41,6 +42,7 @@ import com.mcxiaoke.minicat.service.Constants;
 import com.mcxiaoke.minicat.util.LogUtil;
 import com.mcxiaoke.minicat.util.Utils;
 import com.nostra13.universalimageloader.core.ImageLoader;
+import com.squareup.picasso.Picasso;
 import com.umeng.analytics.MobclickAgent;
 import com.umeng.update.UmengUpdateAgent;
 import com.umeng.update.UmengUpdateListener;
@@ -50,6 +52,7 @@ import org.oauthsimple.utils.MimeUtils;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import de.hdodenhof.circleimageview.CircleImageView;
 
 
 /**
@@ -338,8 +341,12 @@ public class UIHome extends UIBaseSupport /*MenuCallback,*/
 
     protected void setupNavigationDrawer() {
         final AccountInfo accountInfo = AppContext.getAccountInfo();
+        View header = mNavigationView.getHeaderView(0);
+        TextView name = (TextView) header.findViewById(R.id.nav_username);
+        CircleImageView avatar = (CircleImageView) header.findViewById(R.id.nav_avatar);
         if (accountInfo != null) {
-
+            name.setText(accountInfo.getScreenName());
+            Picasso.with(this).load(accountInfo.getProfileImage()).into(avatar);
         }
 
     }
