@@ -29,9 +29,30 @@
         <item name="android:actionBarStyle">@style/ActionBarStyle</item>
     </style>
 
-    <style name="AppTheme.Dark" parent="android:Theme.Material">
-        <item name="android:windowBackground">@color/black</item>
+    <style name="AppTheme.Dark" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:windowBackground">@color/holo_primary</item>
         <item name="android:actionBarStyle">@style/ActionBarStyleDark</item>
+
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:statusBarColor">@color/holo_primary_dark</item>
+
+        <item name="android:windowContentTransitions">true</item>
+        <item name="android:windowAllowEnterTransitionOverlap">true</item>
+        <item name="android:windowAllowReturnTransitionOverlap">true</item>
+        <item name="android:windowSharedElementEnterTransition">@android:transition/move</item>
+        <item name="android:windowSharedElementExitTransition">@android:transition/move</item>
+
+        <item name="colorPrimary">@color/holo_primary</item>
+        <item name="colorPrimaryDark">@color/holo_primary_dark</item>
+        <item name="colorAccent">@color/holo_secondary</item>
+
+        <item name="colorControlNormal">@color/default_title_indicator_text_color</item>
+        <item name="colorControlActivated">@color/white</item>
+        <item name="colorControlHighlight">@color/white</item>
+        <item name="android:textColorHint">@color/default_title_indicator_text_color</item>
+
+        <item name="colorButtonNormal">@color/holo_primary_dark</item>
+        <item name="android:colorButtonNormal">@color/holo_primary_dark</item>
     </style>
 
     <style name="AppTheme.WhiteBg">

@@ -10,6 +10,7 @@
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/nav_avatar"
+        android:layout_marginTop="30dp"
         android:layout_marginBottom="10dp"
         android:layout_width="72dp"
         android:layout_height="72dp"
