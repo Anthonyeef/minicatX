@@ -1,6 +1,5 @@
 package com.mcxiaoke.minicat.app;
 
-import android.app.ActionBar;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -35,7 +34,6 @@ public abstract class UIBaseSupport extends AppCompatActivity implements OnClick
     protected UIBaseSupport mContext;
     protected LayoutInflater mInflater;
     protected Resources mResources;
-    protected ActionBar mActionBar;
     protected DisplayMetrics mDisplayMetrics;
     protected boolean mRefreshing;
     protected MenuItem mRefreshMenuItem;

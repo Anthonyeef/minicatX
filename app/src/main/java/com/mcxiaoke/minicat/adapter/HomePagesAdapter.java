@@ -2,6 +2,7 @@ package com.mcxiaoke.minicat.adapter;
 
 import android.app.FragmentManager;
 import android.content.Context;
+
 import com.mcxiaoke.minicat.R;
 import com.mcxiaoke.minicat.fragment.AbstractListFragment;
 import com.mcxiaoke.minicat.fragment.HomeTimelineFragment;
@@ -29,13 +30,15 @@ public class HomePagesAdapter extends FragmentPagerAdapter {
         final AbstractListFragment fragment;
         switch (position) {
             case 0:
-                fragment = HomeTimelineFragment.newInstance();
+//                fragment = HomeTimelineFragment.newInstance();
+                fragment = PublicTimelineFragment.newInstance();
                 break;
             case 1:
                 fragment = MentionTimelineFragment.newInstance();
                 break;
             case 2:
-                fragment = PublicTimelineFragment.newInstance();
+//                fragment = PublicTimelineFragment.newInstance();
+                fragment = HomeTimelineFragment.newInstance();
                 break;
             default:
                 fragment = null;

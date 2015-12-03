@@ -25,7 +25,6 @@ import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.mcxiaoke.minicat.AppContext;
@@ -60,8 +59,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
  * @author mcxiaoke
  * @mantainer Anthonyeef 2015-11-24
  */
-public class UIHome extends UIBaseSupport /*MenuCallback,*/
-        /*OnPageChangeListener*/ /*DrawerLayout.DrawerListener*/ {
+public class UIHome extends UIBaseSupport {
 
     public static final String TAG = UIHome.class.getSimpleName();
     private static final int UCODE_HAS_UPDATE = 0;
@@ -69,7 +67,7 @@ public class UIHome extends UIBaseSupport /*MenuCallback,*/
     private static final int UCODE_NO_WIFI = 2;
     private static final int UCODE_IO_ERROR = 3;
     private static final long TIME_THREE_DAYS = 1000 * 3600 * 24 * 5L;
-    private ViewGroup mContainer;
+//    private ViewGroup mContainer;
     private ViewPager mViewPager;
 
     private HomePagesAdapter mPagesAdapter;
@@ -81,14 +79,14 @@ public class UIHome extends UIBaseSupport /*MenuCallback,*/
 
     @Bind(R.id.drawer_layout)
     DrawerLayout mDrawerLayout;
-    @Bind(R.id.fab)
-    FloatingActionButton mFloatingActionButton;
     @Bind(R.id.toolbar)
     Toolbar mToolbar;
-    @Bind(R.id.left_drawer)
-    NavigationView mNavigationView;
     @Bind(R.id.tabs)
     TabLayout mTabLayout;
+    @Bind(R.id.fab)
+    FloatingActionButton mFloatingActionButton;
+    @Bind(R.id.left_drawer)
+    NavigationView mNavigationView;
 
     private void log(String message) {
         LogUtil.v(TAG, message);
@@ -142,30 +140,30 @@ public class UIHome extends UIBaseSupport /*MenuCallback,*/
             }
         }
     };
-
+/*
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
         if (mRefreshMenuItem != null) {
             mRefreshMenuItem.setVisible(false);
         }
         return true;
-    }
+    }*/
 
-    @Override
+/*    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 //        if (item.getItemId() == R.id.menu_write) {
 //            onMenuWriteClick();
 //            return true;
 //        }
         return super.onOptionsItemSelected(item);
-    }
-
+    }*/
+/*
     protected int getMenuResourceId() {
         return R.menu.menu_home;
 //        return R.menu.menu;
-    }
+    }*/
 
-    @Override
+/*    @Override
     protected void onMenuHomeClick() {
 //        super.onMenuHomeClick();
     }
@@ -173,7 +171,7 @@ public class UIHome extends UIBaseSupport /*MenuCallback,*/
     @Override
     protected void onMenuRefreshClick() {
         super.onMenuRefreshClick();
-    }
+    }*/
 
     @Override
     protected void startRefresh() {
@@ -287,19 +285,12 @@ public class UIHome extends UIBaseSupport /*MenuCallback,*/
         setContentView(R.layout.ui_home);
         ButterKnife.bind(this);
 
-        setProgressBarIndeterminateVisibility(false);
+//        setProgressBarIndeterminateVisibility(false);
 
         setSupportActionBar(mToolbar);
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        mNavigationView.setNavigationItemSelectedListener(
-                new NavigationView.OnNavigationItemSelectedListener() {
-                    @Override
-                    public boolean onNavigationItemSelected(MenuItem item) {
-                        return false;
-                    }
-                }
-        );
+
 
         setupNavigationDrawer();
         mViewPager = (ViewPager) findViewById(R.id.viewpager);
@@ -335,7 +326,7 @@ public class UIHome extends UIBaseSupport /*MenuCallback,*/
             }
         });
 
-        mContainer = (ViewGroup) findViewById(R.id.content_frame);
+//        mContainer = (ViewGroup) findViewById(R.id.content_frame);
 
         mCurrentFragment = mPagesAdapter.getItem(mCurrentPage);
 
@@ -357,6 +348,15 @@ public class UIHome extends UIBaseSupport /*MenuCallback,*/
                 onMenuLogoutClick();
             }
         });
+
+        mNavigationView.setNavigationItemSelectedListener(
+               new NavigationView.OnNavigationItemSelectedListener() {
+                   @Override
+                   public boolean onNavigationItemSelected(MenuItem item) {
+                       return false;
+                   }
+               }
+        );
 
     }
 
