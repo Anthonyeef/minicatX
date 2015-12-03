@@ -20,7 +20,6 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -79,8 +78,8 @@ public class UIHome extends UIBaseSupport {
 
     @Bind(R.id.drawer_layout)
     DrawerLayout mDrawerLayout;
-    @Bind(R.id.toolbar)
-    Toolbar mToolbar;
+/*    @Bind(R.id.toolbar)
+    Toolbar mToolbar;*/
     @Bind(R.id.tabs)
     TabLayout mTabLayout;
     @Bind(R.id.fab)
@@ -287,7 +286,7 @@ public class UIHome extends UIBaseSupport {
 
 //        setProgressBarIndeterminateVisibility(false);
 
-        setSupportActionBar(mToolbar);
+        /*setSupportActionBar(mToolbar);*/
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
 

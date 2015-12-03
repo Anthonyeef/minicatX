@@ -30,15 +30,15 @@ public class HomePagesAdapter extends FragmentPagerAdapter {
         final AbstractListFragment fragment;
         switch (position) {
             case 0:
-//                fragment = HomeTimelineFragment.newInstance();
-                fragment = PublicTimelineFragment.newInstance();
+                fragment = HomeTimelineFragment.newInstance();
+//                fragment = PublicTimelineFragment.newInstance();
                 break;
             case 1:
                 fragment = MentionTimelineFragment.newInstance();
                 break;
             case 2:
-//                fragment = PublicTimelineFragment.newInstance();
-                fragment = HomeTimelineFragment.newInstance();
+                fragment = PublicTimelineFragment.newInstance();
+//                fragment = HomeTimelineFragment.newInstance();
                 break;
             default:
                 fragment = null;
