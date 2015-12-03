@@ -4,7 +4,6 @@ import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -47,9 +46,9 @@ public class UIPhoto extends Activity implements OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         requestWindowFeature(Window.FEATURE_ACTION_BAR_OVERLAY);
         super.onCreate(savedInstanceState);
-        getActionBar().setBackgroundDrawable(new ColorDrawable(0x66333333));
-        getActionBar().setDisplayHomeAsUpEnabled(true);
-        getActionBar().setTitle("查看照片");
+//        getActionBar().setBackgroundDrawable(new ColorDrawable(0x66333333));
+//        getActionBar().setDisplayHomeAsUpEnabled(true);
+//        getActionBar().setTitle("查看照片");
         initialize();
         setLayout();
     }

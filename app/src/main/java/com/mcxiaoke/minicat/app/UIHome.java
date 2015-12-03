@@ -16,6 +16,7 @@ import android.os.Environment;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
+import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.support.v4.widget.DrawerLayout;
@@ -86,8 +87,8 @@ public class UIHome extends UIBaseSupport /*MenuCallback,*/
     Toolbar mToolbar;
     @Bind(R.id.left_drawer)
     NavigationView mNavigationView;
-//    @Bind(R.id.nav_username)
-//    TextView username;
+    @Bind(R.id.tabs)
+    TabLayout mTabLayout;
 
     private void log(String message) {
         LogUtil.v(TAG, message);
@@ -337,6 +338,8 @@ public class UIHome extends UIBaseSupport /*MenuCallback,*/
         mContainer = (ViewGroup) findViewById(R.id.content_frame);
 
         mCurrentFragment = mPagesAdapter.getItem(mCurrentPage);
+
+        mTabLayout.setupWithViewPager(mViewPager);
     }
 
     protected void setupNavigationDrawer() {
