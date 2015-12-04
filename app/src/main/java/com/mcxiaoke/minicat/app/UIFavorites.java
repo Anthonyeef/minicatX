@@ -20,9 +20,9 @@ public class UIFavorites extends UIBaseTimeline {
         return UserFavoritesFragment.newInstance(userId, true);
     }
 
-    @Override
+/*    @Override
     protected String getTitleSuffix() {
         return "收藏";
-    }
+    }*/
 
 }

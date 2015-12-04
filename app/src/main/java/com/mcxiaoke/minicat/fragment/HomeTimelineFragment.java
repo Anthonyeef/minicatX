@@ -4,6 +4,7 @@ import android.content.Loader;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.util.Log;
+
 import com.mcxiaoke.minicat.AppContext;
 import com.mcxiaoke.minicat.api.Paging;
 import com.mcxiaoke.minicat.controller.DataController;
@@ -32,6 +33,7 @@ public class HomeTimelineFragment extends BaseTimlineFragment {
         if (AppContext.DEBUG) {
             Log.d(TAG, "newInstance() " + fragment);
         }
+
         return fragment;
     }
 
@@ -74,5 +76,10 @@ public class HomeTimelineFragment extends BaseTimlineFragment {
     public String getTitle() {
         return "主页";
     }
+
+
+    /*TODO:Add onScrollListener*/
+
+
 
 }

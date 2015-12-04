@@ -24,6 +24,7 @@ import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.mcxiaoke.minicat.AppContext;
@@ -49,6 +50,9 @@ import com.umeng.update.UpdateResponse;
 
 import org.oauthsimple.utils.MimeUtils;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -66,7 +70,7 @@ public class UIHome extends UIBaseSupport {
     private static final int UCODE_NO_WIFI = 2;
     private static final int UCODE_IO_ERROR = 3;
     private static final long TIME_THREE_DAYS = 1000 * 3600 * 24 * 5L;
-//    private ViewGroup mContainer;
+    private ViewGroup mContainer;
     private ViewPager mViewPager;
 
     private HomePagesAdapter mPagesAdapter;
@@ -78,14 +82,27 @@ public class UIHome extends UIBaseSupport {
 
     @Bind(R.id.drawer_layout)
     DrawerLayout mDrawerLayout;
-/*    @Bind(R.id.toolbar)
-    Toolbar mToolbar;*/
-    @Bind(R.id.tabs)
-    TabLayout mTabLayout;
     @Bind(R.id.fab)
     FloatingActionButton mFloatingActionButton;
     @Bind(R.id.left_drawer)
     NavigationView mNavigationView;
+    @Bind(R.id.tabs)
+    TabLayout mTabLayout;
+
+
+
+/*    *//*The tab below*//*
+    @Bind(R.id.nav)
+    RelativeLayout mNavBar;
+    @Bind(R.id.nav_btn_l)
+    RelativeLayout mNavBtnLeft;
+    @Bind(R.id.nav_btn_m)
+    RelativeLayout mNavBtnMid;
+    @Bind(R.id.nav_btn_r)
+    RelativeLayout mNavBtnRig;
+    @Bind(R.id.home_pager_indicator)
+    View mIndicator;*/
+
 
     private void log(String message) {
         LogUtil.v(TAG, message);
@@ -139,38 +156,7 @@ public class UIHome extends UIBaseSupport {
             }
         }
     };
-/*
-    @Override
-    public boolean onPrepareOptionsMenu(Menu menu) {
-        if (mRefreshMenuItem != null) {
-            mRefreshMenuItem.setVisible(false);
-        }
-        return true;
-    }*/
 
-/*    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-//        if (item.getItemId() == R.id.menu_write) {
-//            onMenuWriteClick();
-//            return true;
-//        }
-        return super.onOptionsItemSelected(item);
-    }*/
-/*
-    protected int getMenuResourceId() {
-        return R.menu.menu_home;
-//        return R.menu.menu;
-    }*/
-
-/*    @Override
-    protected void onMenuHomeClick() {
-//        super.onMenuHomeClick();
-    }
-
-    @Override
-    protected void onMenuRefreshClick() {
-        super.onMenuRefreshClick();
-    }*/
 
     @Override
     protected void startRefresh() {
@@ -325,7 +311,7 @@ public class UIHome extends UIBaseSupport {
             }
         });
 
-//        mContainer = (ViewGroup) findViewById(R.id.content_frame);
+        mContainer = (ViewGroup) findViewById(R.id.main_container);
 
         mCurrentFragment = mPagesAdapter.getItem(mCurrentPage);
 
@@ -348,11 +334,28 @@ public class UIHome extends UIBaseSupport {
             }
         });
 
+
+        /*TODO: add onClickListener to Drawer item*/
+
+        final List<MenuItem> items = new ArrayList<>();
+        Menu menu = mNavigationView.getMenu();
+        for (int i =0; i < menu.size(); i++) {
+            items.add(menu.getItem(i));
+        }
         mNavigationView.setNavigationItemSelectedListener(
                new NavigationView.OnNavigationItemSelectedListener() {
                    @Override
-                   public boolean onNavigationItemSelected(MenuItem item) {
-                       return false;
+                   public boolean onNavigationItemSelected(final MenuItem menuItem) {
+                       menuItem.setChecked(true);
+                       int position = items.indexOf(menuItem);
+                       switch (position) {
+                           case 2:
+                               showProfileFragment();
+                               break;
+                           default:
+                               break;
+                       }
+                       return true;
                    }
                }
         );
@@ -400,7 +403,7 @@ public class UIHome extends UIBaseSupport {
         FragmentTransaction ft = getFragmentManager().beginTransaction();
         ft.setCustomAnimations(R.animator.fade_in, R.animator.fade_out, R.animator.fade_in, R.animator.fade_out);
 //        ft.setTransitionStyle(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
-        ft.replace(R.id.content_frame, fragment);
+        ft.replace(R.id.main_container, fragment);
         ft.commit();
 //        getSlidingMenu().showContent();
         mCurrentFragment = fragment;

@@ -26,8 +26,8 @@ public class UITimeline extends UIBaseTimeline {
         super.onCreate(savedInstanceState);
     }
 
-    @Override
+/*    @Override
     protected String getTitleSuffix() {
         return "消息";
-    }
+    }*/
 }

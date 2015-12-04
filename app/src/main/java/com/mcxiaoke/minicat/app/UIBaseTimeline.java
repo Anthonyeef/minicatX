@@ -119,13 +119,13 @@ abstract class UIBaseTimeline extends UIBaseSupport {
         }
 
         if (user != null) {
-            getActionBar().setTitle(user.getScreenName() + "的" + getTitleSuffix());
+//            getActionBar().setTitle(user.getScreenName() + "的" + getTitleSuffix());
         }
 
         return false;
 
     }
 
-    protected abstract String getTitleSuffix();
+//    protected abstract String getTitleSuffix();
 
 }

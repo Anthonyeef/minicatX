@@ -356,7 +356,7 @@ public class ProfileFragment extends AbstractFragment
         if (user != null && useMenu) {
             Activity activity = getActivity();
             if (activity != null) {
-                activity.getActionBar().setTitle("@" + user.getScreenName());
+//                activity.getActionBar().setTitle("@" + user.getScreenName());
             }
         }
     }

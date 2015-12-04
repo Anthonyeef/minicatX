@@ -20,7 +20,7 @@
             android:icon="@drawable/ic_draft_material"
             android:title="Drafts"/>
         <item
-            android:icon="@drawable/ic_setting_material"
+            android:icon="@drawable/ic_settings"
             android:title="Settings"/>
     </group>
 </menu>
