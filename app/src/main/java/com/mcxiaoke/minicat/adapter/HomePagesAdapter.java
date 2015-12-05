@@ -2,6 +2,11 @@ package com.mcxiaoke.minicat.adapter;
 
 import android.app.FragmentManager;
 import android.content.Context;
+import android.graphics.drawable.Drawable;
+import android.support.v4.content.ContextCompat;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.style.ImageSpan;
 
 import com.mcxiaoke.minicat.R;
 import com.mcxiaoke.minicat.fragment.AbstractListFragment;
@@ -12,7 +17,7 @@ import com.mcxiaoke.minicat.fragment.PublicTimelineFragment;
 public class HomePagesAdapter extends FragmentPagerAdapter {
 
     private static final int[] ICONS = {
-            R.drawable.ic_tab_home_1, R.drawable.ic_tab_mention_1, R.drawable.ic_tab_browse_1
+            R.drawable.ic_home_material, R.drawable.ic_mention_yup, R.drawable.ic_public_material
     };
     private static final int[] TITLES = {
             R.string.page_title_home, R.string.page_title_mention, R.string.page_title_public
@@ -54,6 +59,12 @@ public class HomePagesAdapter extends FragmentPagerAdapter {
 
     @Override
     public CharSequence getPageTitle(int position) {
-        return mContext.getString(TITLES[position]);
+//        return mContext.getString(TITLES[position]);
+        Drawable image = ContextCompat.getDrawable(mContext, ICONS[position]);
+        image.setBounds(0, 0, image.getIntrinsicWidth(), image.getIntrinsicHeight());
+        SpannableString sb = new SpannableString(" ");
+        ImageSpan imageSpan = new ImageSpan(image, ImageSpan.ALIGN_BOTTOM);
+        sb.setSpan(imageSpan, 0, 1, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+        return sb;
     }
 }
