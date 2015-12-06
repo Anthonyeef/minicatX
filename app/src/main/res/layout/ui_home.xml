@@ -136,8 +136,7 @@
             android:layout_gravity="bottom|end|right"
             android:layout_margin="16dp"
             android:background="@color/holo_secondary"
-            android:src="@drawable/ic_mode_edit_24dp"
-            />
+            android:src="@drawable/ic_mode_edit_24dp"/>
     </android.support.design.widget.CoordinatorLayout>
 
     </FrameLayout>

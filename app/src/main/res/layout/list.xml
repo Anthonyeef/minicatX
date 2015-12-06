@@ -5,10 +5,17 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/background_primary">
+<!--    <android.support.v4.widget.NestedScrollView
+        android:id="@+id/list_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
+
+    </android.support.v4.widget.NestedScrollView>-->
     <com.mcxiaoke.commons.view.endless.EndlessListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@id/list" />
+
 
 </LinearLayout>

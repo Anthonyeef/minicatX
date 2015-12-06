@@ -33,7 +33,6 @@ import com.mcxiaoke.minicat.adapter.HomePagesAdapter;
 import com.mcxiaoke.minicat.config.AccountInfo;
 import com.mcxiaoke.minicat.controller.UIController;
 import com.mcxiaoke.minicat.fragment.AbstractFragment;
-import com.mcxiaoke.minicat.fragment.ConversationListFragment;
 import com.mcxiaoke.minicat.fragment.ProfileFragment;
 import com.mcxiaoke.minicat.preference.PreferenceHelper;
 import com.mcxiaoke.minicat.push.PushService;
@@ -90,18 +89,6 @@ public class UIHome extends UIBaseSupport {
     TabLayout mTabLayout;
 
 
-
-/*    *//*The tab below*//*
-    @Bind(R.id.nav)
-    RelativeLayout mNavBar;
-    @Bind(R.id.nav_btn_l)
-    RelativeLayout mNavBtnLeft;
-    @Bind(R.id.nav_btn_m)
-    RelativeLayout mNavBtnMid;
-    @Bind(R.id.nav_btn_r)
-    RelativeLayout mNavBtnRig;
-    @Bind(R.id.home_pager_indicator)
-    View mIndicator;*/
 
 
     private void log(String message) {
@@ -416,13 +403,6 @@ public class UIHome extends UIBaseSupport {
         switchContent(ProfileFragment.newInstance(AppContext.getAccount(), false));
         setTitle("我的资料");
     }
-
-    private void showMessageFragment() {
-        switchContent(ConversationListFragment.newInstance(false));
-        setTitle("收件箱");
-    }
-
-
 
 
     /*Broadcast receiver. No need to change*/

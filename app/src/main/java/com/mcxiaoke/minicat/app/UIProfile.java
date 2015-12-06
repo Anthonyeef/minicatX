@@ -4,7 +4,9 @@ import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
+
 import com.mcxiaoke.minicat.R;
 import com.mcxiaoke.minicat.dao.model.UserModel;
 import com.mcxiaoke.minicat.fragment.ProfileFragment;
@@ -16,6 +18,8 @@ import com.mcxiaoke.minicat.fragment.ProfileFragment;
 public class UIProfile extends UIBaseSupport {
     private String userId;
     private UserModel user;
+    Toolbar mToolbar;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -35,6 +39,13 @@ public class UIProfile extends UIBaseSupport {
     private void setLayout() {
         setContentView(R.layout.ui_profile);
         setProgressBarIndeterminateVisibility(false);
+
+        mToolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(mToolbar);
+        getSupportActionBar().setTitle("Profile");
+
+        setTitle("Profile");
+        getSupportActionBar().getTitle();
 
         FragmentTransaction ft = getFragmentManager().beginTransaction();
         ft.replace(R.id.container, ProfileFragment.newInstance(userId, true));
