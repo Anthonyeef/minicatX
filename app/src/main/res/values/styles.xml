@@ -109,7 +109,7 @@
         <item name="android:layout_marginBottom">5dp</item>
         <item name="android:layout_marginTop">5dp</item>
         <item name="android:padding">@dimen/list_padding</item>
-        <item name="android:background">@drawable/button_blue</item>
+        <item name="android:background">#FAFAFA</item>
     </style>
 
     <style name="Item">

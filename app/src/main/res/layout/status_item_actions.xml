@@ -2,8 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:background="@color/holo_primary">
+    android:orientation="horizontal">
+    <!--android:background="@color/holo_primary">-->
 
     <ImageButton
         android:id="@+id/action_reply"
@@ -13,7 +13,7 @@
     <ImageButton
         android:id="@+id/action_retweet"
         style="@style/ActionItem"
-        android:src="@drawable/ic_retweet" />
+        android:src="@drawable/ic_retweet_card" />
 
     <ImageButton
         android:id="@+id/action_favorite"
@@ -23,6 +23,6 @@
     <ImageButton
         android:id="@+id/action_share"
         style="@style/ActionItem"
-        android:src="@drawable/ic_share" />
+        android:src="@drawable/ic_share_material" />
 
 </LinearLayout>
