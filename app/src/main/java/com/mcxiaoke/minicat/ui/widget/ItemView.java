@@ -9,7 +9,6 @@ import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -45,10 +44,10 @@ public class ItemView extends RelativeLayout {
 
     /*Anthonyeef add code here
     * 2015-11-25*/
-    private ImageButton replyCard;
+  /*  private ImageButton replyCard;
     private ImageButton retweetCard;
     private ImageButton favCard;
-    private ImageButton shareCard;
+    private ImageButton shareCard;*/
 
     private LinearLayout mViewStub;
     private View mIconsView;
@@ -92,10 +91,10 @@ public class ItemView extends RelativeLayout {
         mMetaTextView = (TextView) findViewById(R.id.meta);
         mPhotoView = (ImageView) findViewById(R.id.photo);
 
-        replyCard = (ImageButton) findViewById(R.id.cardreply);
+    /*    replyCard = (ImageButton) findViewById(R.id.cardreply);
         retweetCard = (ImageButton) findViewById(R.id.cardretweet);
         favCard = (ImageButton) findViewById(R.id.cardfav);
-        shareCard = (ImageButton) findViewById(R.id.cardreply);
+        shareCard = (ImageButton) findViewById(R.id.cardreply);*/
 
         mViewStub = (LinearLayout) findViewById(R.id.stub);
         mIconsView = findViewById(R.id.icons);
@@ -121,13 +120,13 @@ public class ItemView extends RelativeLayout {
         });
 
         //TODO
-
+/*
         replyCard.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
 
             }
-        });
+        });*/
 
     }
 
