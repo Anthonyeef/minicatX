@@ -8,6 +8,7 @@ import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.Menu;
@@ -187,7 +188,11 @@ public class UIStatus extends UIBaseSupport {
         setContentView(R.layout.ui_status);
         setProgressBarIndeterminateVisibility(false);
 
-        setTitle("消息");
+        Toolbar mToolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(mToolbar);
+        getSupportActionBar().setTitle("消息");
+
+//        setTitle("消息");
 
         findViews();
         setEmptyView();
