@@ -12,6 +12,7 @@
 
 
     </android.support.v4.widget.NestedScrollView>-->
+
     <com.mcxiaoke.commons.view.endless.EndlessListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"

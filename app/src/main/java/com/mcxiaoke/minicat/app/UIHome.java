@@ -87,6 +87,8 @@ public class UIHome extends UIBaseSupport {
     NavigationView mNavigationView;
     @Bind(R.id.tabs)
     TabLayout mTabLayout;
+  /*  @Bind(R.id.toolbar)
+    Toolbar mToolbar;*/
 
 
 
@@ -259,7 +261,7 @@ public class UIHome extends UIBaseSupport {
 
 //        setProgressBarIndeterminateVisibility(false);
 
-        /*setSupportActionBar(mToolbar);*/
+//        setSupportActionBar(mToolbar);
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
 
